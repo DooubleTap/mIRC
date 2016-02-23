@@ -1,8 +1,7 @@
-#####################################
-#    Nicklist coloring Script       #
-# Made by: http://www.jrIRC.vze.com #
-#        Shared by: Sebastien       #
-#####################################
+;Nicklist coloring Script
+; Made by: http://www.jrIRC.vze.com
+;Shared by: Sebastien
+;Example: http://i.imgur.com/ww4YMfU.png
 
 menu menubar,channel { 
   .NickList Colors:nicklistcl
