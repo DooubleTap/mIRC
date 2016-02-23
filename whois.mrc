@@ -1,7 +1,8 @@
-## Whois mods by Sebastien (xplo)
-## $comchan alias from someone in a help chan somewhere. 
-## If you touch at something below this line, you WILL fuckup something.
-##----------------------------------------------------------------------
+; Whois mods by Sebastien (xplo)
+; $comchan alias from someone in a help chan somewhere. 
+; If you touch at something below this line, you WILL fuckup something.
+; Example: http://i.imgur.com/tLi75RP.png
+; /w nick
 
 alias w { .enable #whois | whois $1 $1 } 
 #whois off
