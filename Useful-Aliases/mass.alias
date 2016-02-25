@@ -1,0 +1,22 @@
+;This alias's usage is /mass [+|-]<ohbav> 
+;So, /mass +v /mass -b /mass +o
+;Note on the second line of it, [ohbav] add or remove letters in it for required modes.
+;Different ircd, different modes.
+
+alias mass {
+  if ( $regex($1,/^[\+-]?[ohbav]$/) ) && ( $me isop # ) {
+    var %a, %c = $+($left($1,1),$str($right($1,1),$modespl))
+    var %d = $iif( $left($1,1) === -, $right($1,1), $iif($right($1,1) == v,a,$+(a,$chr(44),o)) ), %b = $nick(#,0,%d)
+    while %b {
+      if ( $nick(#,%b,%d) != $me) {
+        %a = %a $v1
+        if ($modespl == $numtok(%a,32)) { 
+          mode # %c %a 
+          %a = "" 
+        }
+      }
+      dec %b
+    }
+    if (%a) mode # %c %a
+  }
+}
