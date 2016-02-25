@@ -1,0 +1,11 @@
+;Just type /ascii a @ASCII wildow will open with a list of chr codes.
+
+alias ascii { 
+  window -l -t15,30 @ASCII -1 -1 400 300 
+  aline @ascii Character $+ $chr(9) $+ ASCII value $+ $chr(9) $+ Alt+<keypad>
+  VAR %a = 32 
+  WHILE (%a <= 255) { 
+    aline @ascii $chr(%a) $+ $chr(9) $+ %a $+ $chr(9) $+ $base(%a,10,10,4) 
+    INC %a 
+  } 
+}
