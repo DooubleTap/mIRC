@@ -1,0 +1,37 @@
+;This will show you stats of all the files in  your client. 
+;Like this
+;[Aliases(Loaded)] 5 files, 748 lines, 27.95kb
+;[Remote(Loaded)] 18 files, 2565 lines, 95.93kb
+;[Total] 123 scripts, total of 25,352 lines.
+;Click the Menu and look for [Stats DB]
+
+alias stats.db {
+  var %dbf $iif($1 == -s,say,echo -a)
+  var %aliases.total, %aliases.lines, %aliases.size
+  var %remote.total, %remote.lines, %remote.size
+  var %x = 1, %y
+  %aliases.total = $alias(0)
+  while (%x <= %aliases.total) {
+    %y = $alias(%x)
+    inc %aliases.lines $lines(%y)
+    inc %aliases.size $file(%y).size
+    inc %x 1
+  }
+  %x = 1
+  %remote.total = $script(0)
+  while (%x <= %remote.total) {
+    %y = $script(%x)
+    inc %remote.lines $lines(%y)
+    inc %remote.size $file(%y).size
+    inc %x 1
+  } 
+  %dbf [7Aliases(3Loaded)] %aliases.total files, %aliases.lines lines, $bytes(%aliases.size,k) $+ kb 
+  %dbf [2Remote(3Loaded)] %remote.total files, %remote.lines lines, $bytes(%remote.size,k) $+ kb
+  %dbf [4Total] $findfile($scriptdir, *.ini;*.mrc, 0, inc -u %x $lines($1)) scripts, total of $bytes(%x, db) lines.
+}
+
+menu menubar { 
+  [Stats DB]
+  .Say it:stats.db -s
+  .See it:stats.db
+}
