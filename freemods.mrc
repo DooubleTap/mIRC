@@ -6,9 +6,6 @@
 ;
 ; All you need to do, is edit the op-pls alias
 ; 
-; raw remove $chan $1 :Did you see what you made me do.
-; mode $chan +b $address($1,2) $+ $ $+ ##fix_your_connection
-;
 ; /fq <nick>                   (mute *!*@host.name)
 ; /fuq <nick>                  (unmute *!*@host.name)
 ; /fmq <nick!user@host.name>   (mute *!*@host.name manually)
