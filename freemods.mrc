@@ -4,19 +4,17 @@
 ; This script is based on autobleh.mrc by KindOne
 ; and autobleh.mrc is based on the irssi version - http://autobleh.projectnet.org/ 
 ;
-; All you need to do, is edit the op-pls alias
+; All you need to do, is edit the op-pls alias with the command you do to gain ops
 ; 
 ; /fq <nick>                   (mute *!*@host.name)
 ; /fuq <nick>                  (unmute *!*@host.name)
 ; /fmq <nick!user@host.name>   (mute *!*@host.name manually)
 ; /fmuq <nick!user@host.name>  (unmute *!*@host.name manually)
 ; /fr <nick>                   (remove <nick>)
+; /fix <nick>                  (Ban redirect to ##fix_your_shit)
 
-; Edit this alias, with the services op request command.
-; Example:   cs op $chan  or msg x op $chan. (network specific)
 alias -l op-pls { .cs op $chan }
 
-; DO NOT touch anything else, you WILL fuck it up.
 on *:op:#:{ 
   if ($opnick == $me) { 
     if (%rekt2) { %rekt1 | %rekt2 | .timer 1 1 unset %rekt1 | .timer 1 1 unset %rekt2 }
@@ -47,4 +45,9 @@ alias fmq {
 alias fmuq { 
   if ($me isop $chan) { mode $chan -q $1 }
   else { set %rekt1 mode $chan -qo $1 $me | op-pls } 
+}
+
+alias fix { 
+  if ($me isop $chan) { mode $chan +b $address($1,2) $+ $ $+ ##fix_your_shit }
+  else { set %rekt1 mode $chan +b-o $address($1,2) $+ $ $+ ##fix_your_shit $me | op-pls } 
 }
