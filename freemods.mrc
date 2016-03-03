@@ -13,8 +13,11 @@
 ; /fr <nick>                   (remove <nick>)
 ; /fix <nick>                  (Ban redirect to ##fix_your_shit)
 
+; Edit this alias (op-pls) with the services op request command.
+; Example:   cs op $chan  or msg x op $chan. (network specific)
 alias -l op-pls { .cs op $chan }
-
+  
+; DO NOT touch anything else, you WILL fuck it up.
 on *:op:#:{ 
   if ($opnick == $me) { 
     if (%rekt2) { %rekt1 | %rekt2 | .timer 1 1 unset %rekt1 | .timer 1 1 unset %rekt2 }
