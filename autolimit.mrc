@@ -69,9 +69,3 @@ menu nicklist,channel {
   } 
   - 
 }
-
-on *:LOAD:{ 
-  echo -a 4» »08 Auto-Limit Script Successfully Loaded.
-  echo -a 4» »08 Copyright © 200915 http://xplorer.mircscripting.info
-  echo -a 4» »08 Written by: 15 xplorer 08 Email: 15 xplorer@live.ca
-}
