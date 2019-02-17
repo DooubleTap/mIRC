@@ -16,11 +16,7 @@
 #                  Since then, i now moved it to a GitHub page on my account. 
 #
 #
-# version 2.1: Added commands from 501 to 1000 so everyone can use it, even network admins. Will also add
-# Dec 2018     all the uworld's commands. the next version will probably also contain most of the commands used
-#                     by Network Operators for quick glines and channel fixes. There will be a setting that needs to be turned on 
-#                     to be able to see admin commands. 
-#
+# version 2.1: Added commands from 501 to 1000 so everyone can use it, even network admins.
 #
 # version 2.1.5: Added nicklist commands and separated the menus. 
 # Feb 2019
